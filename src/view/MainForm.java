@@ -270,7 +270,7 @@ public class MainForm extends javax.swing.JFrame {
     public static void main(String args[]) {
         ImageIcon kep = new ImageIcon("../Blackjack-singlehand.jpg");
 
-        kep.setIcon(kep);
+        kep1.setIcon(kep);
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
