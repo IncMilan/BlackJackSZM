@@ -1,7 +1,10 @@
 package view;
 
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class MainForm extends javax.swing.JFrame {
 
@@ -38,9 +41,11 @@ public class MainForm extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
         jRadioButtonMenuItem2 = new javax.swing.JRadioButtonMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         jMenuItem3.setText("jMenuItem3");
 
@@ -123,6 +128,7 @@ public class MainForm extends javax.swing.JFrame {
 
         jRadioButton1.setText("lapokat felsorol");
 
+        jRadioButton2.setSelected(true);
         jRadioButton2.setText("lapok összértéke");
 
         jButton3.setText("Mentés");
@@ -174,6 +180,14 @@ public class MainForm extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem5);
 
+        jMenuItem1.setText("Megynyitás");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Stratégia");
@@ -184,6 +198,9 @@ public class MainForm extends javax.swing.JFrame {
         jRadioButtonMenuItem2.setSelected(true);
         jRadioButtonMenuItem2.setText("Nem kockáztat");
         jMenu2.add(jRadioButtonMenuItem2);
+
+        jMenuItem2.setText("Megynyitás");
+        jMenu2.add(jMenuItem2);
 
         jMenuBar1.add(jMenu2);
 
@@ -221,21 +238,39 @@ public class MainForm extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabel6.getAccessibleContext().setAccessibleName("kep1");
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        // TODO add your handling code here:
+        
+        int kilepes = JOptionPane.YES_NO_OPTION;
+        ImageIcon icon = new ImageIcon("../ikon.jpg");
+        JOptionPane.showConfirmDialog(null,icon,"Ki Akarsz Lépni?",kilepes);
+        if(kilepes == JOptionPane.YES_OPTION){
+            System.exit(0);
+        }
+        else{
+            remove(kilepes);
+        }
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
-    public static void main(String args[]) {
-       ImageIcon kep = new ImageIcon("Blackjack-singlehand.jpg");
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        JFileChooser j = new JFileChooser("C:\\\\Documents\\\\");
+        j.setAcceptAllFileFilterUsed(false);
+        FileNameExtensionFilter filter = new FileNameExtensionFilter(".png", ".jpg",".gif");
+        j.addChoosableFileFilter(filter);
+        j.showSaveDialog(null);
+        
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-        JLabel jLabelObject = new JLabel();
-        jLabelObject.setIcon(new ImageIcon("Blackjack-singlehand.jpg"));
-        System.out.println(kep);
+    public static void main(String args[]) {
+        ImageIcon kep = new ImageIcon("../Blackjack-singlehand.jpg");
+
+        kep.setIcon(kep);
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -258,6 +293,8 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
