@@ -1,1 +1,1 @@
-# BlackJackSZM
+# Szabó Milán
